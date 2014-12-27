@@ -1,0 +1,6 @@
+---
+chat-format: "[{WORLD}] <{PLAYER}> {MESSAGE}"
+log-chat-disabled: true
+log-on-console: true
+disabled-in-worlds: []
+...
