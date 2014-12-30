@@ -42,6 +42,6 @@ log-on-console: true
 #World list where chat is disabled
 disabled-in-worlds: []
 ...
-'''
+```
 
 
