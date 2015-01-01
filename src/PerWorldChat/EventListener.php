@@ -1,11 +1,11 @@
 <?php
 
 /*
- * PerWorldChat (v1.1) by EvolSoft
+ * PerWorldChat (v1.2) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: http://www.evolsoft.tk
- * Date: 27/12/2014 02:05 PM (UTC)
- * Copyright & License: (C) 2014 EvolSoft
+ * Date: 01/01/2015 05:32 PM (UTC)
+ * Copyright & License: (C) 2014-2015 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
 
@@ -27,20 +27,27 @@ class EventListener extends PluginBase implements Listener{
 	public function onChat(PlayerChatEvent $event){
 		$player = $event->getPlayer();
 		$this->cfg = $this->plugin->getConfig()->getAll();
-		$message = $event->getMessage();
-		$message = $this->plugin->getFormat($player, $player->getLevel()->getName(), $message);
-		//Check if the chat is disabled in the world
+		$recipients = $event->getRecipients();
+		for($i = 0; $i < count($recipients); $i++){
+			$levelplayers = $recipients[$i];
+			if($levelplayers instanceof Player){
+				if($player->getLevel() != $levelplayers->getLevel()){
+					$message[] = $i;
+					foreach($message as $messages){
+						unset($recipients[$i]);
+						$event->setRecipients(array_values($recipients));
+					}
+				}
+			}
+		}
+		//Checking Chat Disabled
 		if($this->plugin->isChatDisabled($player->getLevel()->getName())){
-			//Check if log-chat-disabled is enabled
+		    //Check if log-chat-disabled is enabled
 			if($this->cfg["log-chat-disabled"] == true){
 				$player->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&cChat is disabled in this world"));
 			}
 			$event->setCancelled(true);
-		}else{
-			$this->plugin->SendLevelMessage($player->getLevel()->getName(), $message);
-			$event->setCancelled(true);
 		}
 	}
-
 }
 ?>
