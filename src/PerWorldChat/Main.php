@@ -1,11 +1,11 @@
 <?php
 
 /*
- * PerWorldChat (v1.1) by EvolSoft
+ * PerWorldChat (v1.2) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: http://www.evolsoft.tk
- * Date: 27/12/2014 02:04 PM (UTC)
- * Copyright & License: (C) 2014 EvolSoft
+ * Date: 01/01/2015 05:31 PM (UTC)
+ * Copyright & License: (C) 2014-2015 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
 
@@ -21,7 +21,7 @@ class Main extends PluginBase{
 	
 	//About Plugin Const
 	const PRODUCER = "EvolSoft";
-	const VERSION = "1.1";
+	const VERSION = "1.2";
 	const MAIN_WEBSITE = "http://www.evolsoft.tk";
 	//Other Const
 	//Prefix
@@ -65,33 +65,7 @@ class Main extends PluginBase{
         $this->logger = Server::getInstance()->getLogger();
         $this->logger->info($this->translateColors("&", Main::PREFIX . "&ePerWorldChat &dv" . Main::VERSION . " &edeveloped by&d " . Main::PRODUCER));
         $this->logger->info($this->translateColors("&", Main::PREFIX . "&eWebsite &d" . Main::MAIN_WEBSITE));
-	    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
-    }
-    
-    public function getFormat(Player $player, $level, $message){
-    	$tmp = $this->getConfig()->getAll();
-    	$format = $tmp["chat-format"];
-    	$format = str_replace("{MESSAGE}", $message, $format);
-    	$format = str_replace("{PLAYER}", $player->getName(), $format);
-    	$format = str_replace("{WORLD}", $level, $format);
-    	return $format;
-    }
-    
-    public function SendLevelMessage($level, $message){
-    	$tmp = $this->getConfig()->getAll();
-    	$level = strtolower($level);
-    	if($this->getServer()->getLevelByName($level)){
-    		foreach($this->getServer()->getLevelByName($level)->getPlayers() as $players){
-    			$players->sendMessage($this->translateColors("&", $message));
-    		}
-    		//Check log-on-console
-    		if($tmp["log-on-console"] == true){
-    			Server::getInstance()->getLogger()->info($this->translateColors("&", $message));
-    		}
-    		return true;
-    	}else{
-    		return false;
-    	}
+	$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     
     public function isChatDisabled($level){
