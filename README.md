@@ -8,7 +8,7 @@ PocketMine-MP plugins
 
 ## Requirements
 
-PocketMine-MP Alpha_1.4 API 1.9.0
+PocketMine-MP Alpha_1.4 API 1.10.0
 
 ## Overview
 
@@ -29,16 +29,8 @@ With PerWorldChat you can have a single chat for each world and you can disable 
 **Configuration (config.yml):**
 ```yaml
 ---
-#Chat Format
-#Available tags:
-# - {WORLD}: Show world name
-# - {PLAYER}: Show player name
-# - {MESSAGE}: Show message
-chat-format: "[{WORLD}] <{PLAYER}> {MESSAGE}"
 #Log to player when chat is disabled in world
 log-chat-disabled: true
-#Log messages on PocketMine console
-log-on-console: true
 #World list where chat is disabled
 disabled-in-worlds: []
 ...
