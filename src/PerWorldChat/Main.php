@@ -1,11 +1,11 @@
 <?php
 
 /*
- * PerWorldChat (v1.2) by EvolSoft
+ * PerWorldChat (v1.3) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: http://www.evolsoft.tk
- * Date: 01/01/2015 05:31 PM (UTC)
- * Copyright & License: (C) 2014-2015 EvolSoft
+ * Date: 12/02/2016 06:26 PM (UTC)
+ * Copyright & License: (C) 2014-2016 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
 
@@ -17,11 +17,11 @@ use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 
-class Main extends PluginBase{
+class Main extends PluginBase {
 	
 	//About Plugin Const
 	const PRODUCER = "EvolSoft";
-	const VERSION = "1.2";
+	const VERSION = "1.3";
 	const MAIN_WEBSITE = "http://www.evolsoft.tk";
 	//Other Const
 	//Prefix
@@ -65,7 +65,7 @@ class Main extends PluginBase{
         $this->logger = Server::getInstance()->getLogger();
         $this->logger->info($this->translateColors("&", Main::PREFIX . "&ePerWorldChat &dv" . Main::VERSION . " &edeveloped by&d " . Main::PRODUCER));
         $this->logger->info($this->translateColors("&", Main::PREFIX . "&eWebsite &d" . Main::MAIN_WEBSITE));
-	$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+	    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     
     public function isChatDisabled($level){
