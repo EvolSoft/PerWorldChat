@@ -10,21 +10,23 @@ PocketMine-MP plugins
 
 ## Requirements
 
-PocketMine-MP Alpha_1.4 API 1.10.0
+PocketMine-MP 1.7dev API 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9
 
 ## Overview
 
-**PerWorldChat** allows you to have a single chat for each world.
-
-**EvolSoft Website:** http://www.evolsoft.tk
+**PerWorldChat** let you have a separate chat for each world.
 
 ***This Plugin uses the New API. You can't install it on old versions of PocketMine.***
 
-With PerWorldChat you can have a single chat for each world and you can disable chat in worlds. (read documentation)
+With PerWorldChat you can have a separate chat for each world and you can also disable chat in other worlds. (read documentation)
 
 **To-Do:**
 
 *- Bug fix (if bugs will be found)*
+
+## Donate
+
+Support the development of this plugin with a small donation by clicking [:dollar: here](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=flavius.c.1999@gmail.com&lc=US&item_name=www.evolsoft.tk&no_note=0&cn=&curency_code=EUR&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted). Thank you :smile:
 
 ## Documentation 
 
@@ -37,5 +39,3 @@ log-chat-disabled: true
 disabled-in-worlds: []
 ...
 ```
-
-

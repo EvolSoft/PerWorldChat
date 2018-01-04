@@ -1,8 +1,8 @@
 name: PerWorldChat
-main: PerWorldChat\Main
-version: "1.3"
-api: [1.10.0]
+main: PerWorldChat\PerWorldChat
+version: 1.4
+api: [3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9]
 load: STARTUP
 author: EvolSoft
-description: Per World Chat
+description: Set a separate chat for each world
 website: https://www.evolsoft.tk

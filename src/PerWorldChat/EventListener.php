@@ -1,11 +1,11 @@
 <?php
 
 /*
- * PerWorldChat (v1.3) by EvolSoft
+ * PerWorldChat (v1.4) by EvolSoft
  * Developer: EvolSoft (Flavius12)
- * Website: http://www.evolsoft.tk
- * Date: 12/02/2016 06:27 PM (UTC)
- * Copyright & License: (C) 2014-2016 EvolSoft
+ * Website: https://www.evolsoft.tk
+ * Date: 04/01/2018 04:16 PM (UTC)
+ * Copyright & License: (C) 2014-2018 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
 
@@ -15,18 +15,24 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
-use pocketmine\utils\TextFormat;
 
-class EventListener extends PluginBase implements Listener{
+class EventListener extends PluginBase implements Listener {
 	
-	public function __construct(Main $plugin){
+	public function __construct(PerWorldChat $plugin){
 		$this->plugin = $plugin;
 	}
 	
 	public function onChat(PlayerChatEvent $event){
 		$player = $event->getPlayer();
-		$this->cfg = $this->plugin->getConfig()->getAll();
+		$cfg = $this->plugin->getConfig()->getAll();
+		//Check if chat is disabled
+		if($this->plugin->isChatDisabled($player->getLevel()->getName())){
+		    //Check if log-chat-disabled is enabled
+		    if($cfg["log-chat-disabled"] == true){
+		        $player->sendMessage($this->plugin->translateColors("&", PerWorldChat::PREFIX . "&cChat is disabled on this world"));
+		    }
+		    $event->setCancelled(true);
+		}
 		$recipients = $event->getRecipients();
 		foreach($recipients as $key => $recipient){
 			if($recipient instanceof Player){
@@ -36,14 +42,5 @@ class EventListener extends PluginBase implements Listener{
 			}
 		}
 		$event->setRecipients($recipients);
-		//Checking Chat Disabled
-		if($this->plugin->isChatDisabled($player->getLevel()->getName())){
-		    //Check if log-chat-disabled is enabled
-			if($this->cfg["log-chat-disabled"] == true){
-				$player->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&cChat is disabled in this world"));
-			}
-			$event->setCancelled(true);
-		}
 	}
 }
-?>
