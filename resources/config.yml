@@ -1,6 +1,6 @@
 ---
 #Log to player when chat is disabled in world
-log-chat-disabled: true7
+log-chat-disabled: true
 #World list where chat is disabled
 #For example:
 #disabled-in-worlds:

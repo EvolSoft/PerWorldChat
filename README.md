@@ -10,13 +10,13 @@ PocketMine-MP plugins
 
 ## Requirements
 
-PocketMine-MP 1.7dev API 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9
+PocketMine-MP 1.7dev API 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10, 3.0.0-ALPHA11
 
 ## Overview
 
 **PerWorldChat** let you have a separate chat for each world.
 
-**EvolSoft Website:** http://www.evolsoft.tk
+**EvolSoft Website:** https://www.evolsoft.tk
 
 ***This Plugin uses the New API. You can't install it on old versions of PocketMine.***
 
