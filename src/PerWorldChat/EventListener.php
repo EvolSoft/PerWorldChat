@@ -1,10 +1,10 @@
 <?php
 
 /*
- * PerWorldChat (v1.4) by EvolSoft
+ * PerWorldChat (v1.5) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: https://www.evolsoft.tk
- * Date: 04/01/2018 04:16 PM (UTC)
+ * Date: 15/02/2018 02:47 PM (UTC)
  * Copyright & License: (C) 2014-2018 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
@@ -18,17 +18,20 @@ use pocketmine\plugin\PluginBase;
 
 class EventListener extends PluginBase implements Listener {
 	
+    /** @var PerWorldChat */
+    private $plugin;
+    
 	public function __construct(PerWorldChat $plugin){
 		$this->plugin = $plugin;
 	}
 	
+	/**
+	 * @param PlayerChatEvent $event
+	 */
 	public function onChat(PlayerChatEvent $event){
 		$player = $event->getPlayer();
-		$cfg = $this->plugin->getConfig()->getAll();
-		//Check if chat is disabled
 		if($this->plugin->isChatDisabled($player->getLevel()->getName())){
-		    //Check if log-chat-disabled is enabled
-		    if($cfg["log-chat-disabled"] == true){
+		    if($this->plugin->cfg["log-chat-disabled"]){
 		        $player->sendMessage($this->plugin->translateColors("&", PerWorldChat::PREFIX . "&cChat is disabled on this world"));
 		    }
 		    $event->setCancelled(true);
