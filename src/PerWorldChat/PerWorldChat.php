@@ -1,7 +1,7 @@
 <?php
 
 /*
- * PerWorldChat (v1.5) by EvolSoft
+ * PerWorldChat (v1.6) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: https://www.evolsoft.tk
  * Date: 15/02/2018 02:47 PM (UTC)
