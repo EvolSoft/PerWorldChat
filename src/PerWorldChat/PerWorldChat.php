@@ -1,10 +1,10 @@
 <?php
 
 /*
- * PerWorldChat (v1.6) by EvolSoft
+ * PerWorldChat (v1.7) by EvolSoft
  * Developer: EvolSoft (Flavius12)
  * Website: https://www.evolsoft.tk
- * Date: 15/02/2018 02:47 PM (UTC)
+ * Date: 27/04/2018 01:56 PM (UTC)
  * Copyright & License: (C) 2014-2018 EvolSoft
  * Licensed under MIT (https://github.com/EvolSoft/PerWorldChat/blob/master/LICENSE)
  */
@@ -61,8 +61,6 @@ class PerWorldChat extends PluginBase {
         @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
         $this->cfg = $this->getConfig()->getAll();
-        $this->getServer()->getLogger()->info($this->translateColors("&", self::PREFIX . "&ePerWorldChat &dv" . $this->getDescription()->getVersion() . "&e developed by &dEvolSoft"));
-        $this->getServer()->getLogger()->info($this->translateColors("&", self::PREFIX . "&eWebsite &d" . $this->getDescription()->getWebsite()));
 	    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     
